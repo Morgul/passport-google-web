@@ -1,0 +1,16 @@
+.DS_Store
+
+# IntelliJ artifacts
+.idea
+
+# Build artifacts
+dist
+
+# Bower artifacts
+vendor
+
+# DB artifacts
+server/db/*.json
+
+# Node artifacts
+node_modules

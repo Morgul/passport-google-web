@@ -1,0 +1,28 @@
+{
+  "name": "passport-google-signin",
+  "version": "1.0.0",
+  "description": "\"A simple implementation of 'Google Sign-In for Websites'.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morgul/passport-google-signin.git"
+  },
+  "keywords": [
+    "passport",
+    "authentication",
+    "google"
+  ],
+  "author": "Christopher S. Case <chris.case@g33xnexus.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morgul/passport-google-signin/issues"
+  },
+  "homepage": "https://github.com/morgul/passport-google-signin#readme",
+  "dependencies": {
+    "axios": "^0.13.1",
+    "passport-strategy": "^1.0.0"
+  }
+}
