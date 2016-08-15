@@ -9,7 +9,7 @@ authentication flow. It's very easy to setup and the code is very simple.
 
 ### Create a Google API Console project
 
-Before using `passport-google-signin`, you will need to create a [Google API Console][create-project] project. In the
+Before using `passport-google-web`, you will need to create a [Google API Console][create-project] project. In the
 project, you create a client ID, which you will need to call the sign-in API.
 
 [create-project]: https://developers.google.com/identity/sign-in/web/devconsole-project
@@ -103,13 +103,13 @@ Here is an example of the client setup:
 
 ### Configure Strategy
 
-The `passport-google-signin` strategy uses a simplified OAuth 2.0 flow, designed to be very easy to implement. Once the
+The `passport-google-web` strategy uses a simplified OAuth 2.0 flow, designed to be very easy to implement. Once the
 client side callback sends the `idToken` to the backend, the authentication is already complete. All that is required is
 for the backend to validate the token, to ensure it's not being forged. As such, there's every little required of the
 strategy, and no configuration options required.
 
 ```javascript
-var GoogleStrategy = require('passport-google-signin');
+var GoogleStrategy = require('passport-google-web');
 
 passport.use(new GoogleStrategy(function(token, profile, done) {
     User.findOrCreate({ googleId: profile.id }, function(err, user) {
