@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/morgul/passport-google-web#readme",
   "dependencies": {
-    "axios": "^0.13.1",
+    "axios": "^0.18.1",
     "passport-strategy": "^1.0.0"
   }
 }
