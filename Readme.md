@@ -1,7 +1,8 @@
 # Passport Strategy for "Google Sign-In for Websites"
 
 This is a very simple implementation of the backend portion of the ["Google Sign-In for Websites"][google-signin]
-authentication flow. It's very easy to setup and the code is very simple.
+authentication flow. It's very easy to set up and the code is very simple. It also has no dependencies, other than
+passport itself.
 
 [google-signin]: "https://developers.google.com/identity/sign-in/web/"
 
@@ -71,33 +72,35 @@ xhr.send('idToken=' + idToken);
 Here is an example of the client setup:
 
 ```html
+
 <html lang="en">
-  <head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-  </head>
-  <body>
-    <!-- The sign-in button -->
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+	<head>
+		<meta name="google-signin-scope" content="profile email">
+		<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+	</head>
+	<body>
+		<!-- The sign-in button -->
+		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+		<!-- Sign-in script -->
+		<script>
+			function onSignIn(googleUser)
+			{
+				// Retrieve the id_token
+				const idToken = googleUser.getAuthResponse().id_token;
 
-    <!-- Sign-in script -->
-    <script>
-      function onSignIn(googleUser) {
-        // Retrieve the id_token
-        var idToken = googleUser.getAuthResponse().id_token;
-
-        // Send it as a post to the backend server
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-          console.log('Signed in as: ' + xhr.responseText);
-        };
-        xhr.send('idToken=' + idToken);
-      };
-    </script>
-  </body>
+				// Send it as a post to the backend server
+				const xhr = new XMLHttpRequest();
+				xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onload = function ()
+				{
+					console.log('Signed in as: ' + xhr.responseText);
+				};
+				xhr.send('idToken=' + idToken);
+			}
+		</script>
+	</body>
 </html>
 ```
 
